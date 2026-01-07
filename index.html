@@ -11,7 +11,7 @@
         .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
         .filter-btn.active { @apply bg-indigo-600 text-white border-indigo-600; }
         .animate-fade-in {
-            animation: fadeIn 0.5s ease-in-out forwards;
+            animation: fadeIn 0.4s ease-out forwards;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -36,23 +36,25 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-20 px-6">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1">
+            <div class="flex-1 text-center md:text-left">
                 <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase bg-indigo-100 text-indigo-700 rounded-full">
                     Data Scientist
                 </span>
                 <h1 class="text-4xl md:text-6xl font-bold mb-6 text-slate-900 tracking-tight">
                     Soluciones de Datos <br><span class="text-indigo-600">que impulsan negocios.</span>
                 </h1>
-                <p class="text-lg text-slate-600 mb-8 max-w-xl">
+                <p class="text-lg text-slate-600 mb-8 max-w-xl mx-auto md:mx-0">
                     Especialista en Ciencia de Datos y Automatización de Proyectos.
                 </p>
-                <div class="flex gap-4">
+                <div class="flex justify-center md:justify-start gap-4">
                     <a href="#proyectos" class="px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition shadow-lg">Ver Proyectos</a>
                     <a href="#contacto" class="px-6 py-3 border border-slate-300 font-semibold rounded-lg hover:bg-white transition">Hablemos</a>
                 </div>
             </div>
-            <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl rotate-3 flex items-center justify-center bg-slate-200">
-                <img src="img/perfil.jpeg" alt="Profile" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop'">
+            <div class="relative group">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl rotate-3 bg-slate-200 transition-transform group-hover:rotate-0 duration-500">
+                    <img src="img/perfil.jpeg" alt="Andrés Leiva" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop'">
+                </div>
             </div>
         </div>
     </header>
@@ -74,13 +76,13 @@
                             <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
                             <h3 class="font-bold">Científico de Datos</h3>
                             <p class="text-sm text-indigo-600 mb-2">Instituto Nacional de Propiedad Industrial • 2025</p>
-                            <p class="text-slate-600 text-sm italic">Científico de datos para el Departamento de Estratégia Institucional (DEII). Encargado de la realización de ETLs, paneles estadisticos, automatización de bases de datos, soluciones de inteligencia artificial.</p>
+                            <p class="text-slate-600 text-sm italic">Científico de datos para el Departamento de Estratégia Institucional (DEII). Encargado de ETLs, paneles estadísticos y automatización.</p>
                         </div>
                         <div class="relative pl-8 border-l-2 border-slate-100">
                             <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
                             <h3 class="font-bold">Analista Senior BI</h3>
                             <p class="text-sm text-indigo-600 mb-2">RedSalud • 2022 - 2024</p>
-                            <p class="text-slate-600 text-sm italic">Lider de proyectos de Inteligencia de Negocios. Encargado de la creación de soluciones de BI con Google Cloud Platform.</p>
+                            <p class="text-slate-600 text-sm italic">Líder de proyectos de Inteligencia de Negocios con GCP.</p>
                         </div>
                     </div>
                 </div>
@@ -88,42 +90,32 @@
                     <h2 class="text-2xl font-bold mb-6">Stack Tecnológico</h2>
                     <div class="flex flex-wrap gap-3">
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Python</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">R</span>
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">SQL Server</span>
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">BigQuery</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Cloud Storage</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">DataFlow</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Dataform</span>
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Machine Learning</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Github</span>
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Power BI</span>
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Looker Studio</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Tableau</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">AppScript</span>
                         <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">ETL Pipelines</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Gradio</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">AppSheet</span>
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium">Excel</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Proyectos con Filtros -->
+    <!-- Proyectos -->
     <section id="proyectos" class="py-20 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                <div>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+                <div class="text-center md:text-left">
                     <h2 class="text-3xl font-bold mb-2">Proyectos Seleccionados</h2>
-                    <p class="text-slate-600 font-medium">Donde el código genera valor real.</p>
+                    <p class="text-slate-600 font-medium">Visualización y Modelado Avanzado</p>
                 </div>
                 
-                <!-- Filtros -->
-                <div class="flex flex-wrap gap-2" id="filter-container">
-                    <button class="filter-btn active px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="all">Todos</button>
-                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="ciencia-datos">Ciencia de Datos</button>
-                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="automatizacion">Automatización</button>
-                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="visualizacion">Visualización</button>
+                <div class="flex flex-wrap justify-center gap-2" id="filter-container">
+                    <button class="filter-btn active px-4 py-2 text-xs font-bold rounded-full border border-slate-200 uppercase tracking-wider transition-all" data-filter="all">Todos</button>
+                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 uppercase tracking-wider transition-all" data-filter="ciencia-datos">Ciencia de Datos</button>
+                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 uppercase tracking-wider transition-all" data-filter="automatizacion">Automatización</button>
                 </div>
             </div>
 
@@ -131,17 +123,15 @@
                 
                 <!-- Proyecto 1: Buscador de Marcas -->
                 <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="ciencia-datos">
-                    <div class="aspect-video bg-indigo-50 flex items-center justify-center border-b border-slate-100 overflow-hidden relative">
-                        <img src="img/BuscadorMarcas.PNG" alt="Buscador de Marcas" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.parentElement.querySelector('span').classList.remove('hidden'); this.remove();">
-                        <span class="hidden text-indigo-200 font-bold uppercase tracking-tighter text-center px-4">Buscador de Marcas (NLP)</span>
+                    <!-- Contenedor ajustado para ver imagen completa -->
+                    <div class="aspect-video bg-slate-100 flex items-center justify-center p-2">
+                        <img src="img/BuscadorMarcas.PNG" alt="Buscador de Marcas" class="max-w-full max-h-full object-contain shadow-sm rounded" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                        <span class="hidden text-slate-400 font-bold text-xs uppercase text-center px-4">Buscador de Marcas (NLP)</span>
                     </div>
                     <div class="p-6 flex-grow">
                         <div class="text-indigo-600 font-bold text-[10px] tracking-widest uppercase mb-2">Ciencia de Datos</div>
                         <h3 class="text-lg font-bold mb-3">Similitud Semántica y Fonética</h3>
                         <p class="text-slate-600 text-sm mb-4">Implementación de modelos SBERT y BETO para identificar riesgos de confusión en marcas comerciales para INAPI.</p>
-                        <div class="bg-indigo-50 p-3 rounded-lg mb-4">
-                            <p class="text-xs text-indigo-800 font-semibold">98% de precisión en predicciones.</p>
-                        </div>
                     </div>
                     <div class="px-6 pb-6 mt-auto flex gap-2">
                         <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">PYTHON</span>
@@ -151,17 +141,14 @@
 
                 <!-- Proyecto 2: Clasificador de Radiografías -->
                 <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="ciencia-datos">
-                    <div class="aspect-video bg-emerald-50 flex items-center justify-center border-b border-slate-100 overflow-hidden relative">
-                        <img src="img/ClasificadorIAOido.PNG" alt="IA Radiografías" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.parentElement.querySelector('span').classList.remove('hidden'); this.remove();">
-                        <span class="hidden text-emerald-200 font-bold uppercase tracking-tighter text-center px-4">App Clasificación Oído (IA)</span>
+                    <div class="aspect-video bg-slate-100 flex items-center justify-center p-2">
+                        <img src="img/ClasificadorIAOido.PNG" alt="IA Radiografías" class="max-w-full max-h-full object-contain shadow-sm rounded" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                        <span class="hidden text-slate-400 font-bold text-xs uppercase text-center px-4">App Clasificación Oído (IA)</span>
                     </div>
                     <div class="p-6 flex-grow">
                         <div class="text-emerald-600 font-bold text-[10px] tracking-widest uppercase mb-2">Ciencia de Datos</div>
                         <h3 class="text-lg font-bold mb-3">Clasificador Multimodelo IA</h3>
                         <p class="text-slate-600 text-sm mb-4">Plataforma que integra modelos ResNet, YOLO y VIT para detección de patologías mediante API en Render.</p>
-                        <div class="bg-emerald-50 p-3 rounded-lg mb-4">
-                            <p class="text-xs text-emerald-800 font-semibold">Interacción Vercel + FastAPI.</p>
-                        </div>
                     </div>
                     <div class="px-6 pb-6 mt-auto flex gap-2">
                         <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">RENDER</span>
@@ -170,21 +157,15 @@
                 </div>
 
                 <!-- Proyecto 3: Cuadro de Mando Innovación -->
-                <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="automatizacion visualizacion">
-                    <div class="aspect-video bg-amber-50 flex items-center justify-center border-b border-slate-100 overflow-hidden relative">
-                        <img src="img/CuadroMandoInnovacion.PNG" alt="Looker Studio" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.parentElement.querySelector('span').classList.remove('hidden'); this.remove();">
-                        <span class="hidden text-amber-200 font-bold uppercase tracking-tighter text-center px-4">Cuadro de Mando Innovación</span>
+                <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="automatizacion">
+                    <div class="aspect-video bg-slate-100 flex items-center justify-center p-2">
+                        <img src="img/CuadroMandoInnovacion.PNG" alt="Looker Studio" class="max-w-full max-h-full object-contain shadow-sm rounded" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                        <span class="hidden text-slate-400 font-bold text-xs uppercase text-center px-4">Cuadro de Mando Innovación</span>
                     </div>
                     <div class="p-6 flex-grow">
-                        <div class="flex gap-2 mb-2">
-                            <span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase">Automatización</span>
-                            <span class="text-blue-600 font-bold text-[10px] tracking-widest uppercase">Visualización</span>
-                        </div>
+                        <div class="text-amber-600 font-bold text-[10px] tracking-widest uppercase mb-2">Automatización</div>
                         <h3 class="text-lg font-bold mb-3">Gestión Automatizada de Proyectos</h3>
-                        <p class="text-slate-600 text-sm mb-4">Ecosistema en Looker Studio y App Script para orquestar flujos de innovación desde Google Forms hasta seguimiento real.</p>
-                        <div class="bg-amber-50 p-3 rounded-lg mb-4">
-                            <p class="text-xs text-amber-800 font-semibold">Confirmaciones vía App Script.</p>
-                        </div>
+                        <p class="text-slate-600 text-sm mb-4">Ecosistema en Looker Studio y App Script para orquestar flujos de innovación en INAPI.</p>
                     </div>
                     <div class="px-6 pb-6 mt-auto flex gap-2">
                         <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">LOOKER</span>
@@ -196,34 +177,27 @@
         </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Footer -->
     <footer id="contacto" class="py-20 bg-slate-900 text-white">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-4">¿Tienes un proyecto en mente?</h2>
-            <p class="text-slate-400 mb-10 max-w-lg mx-auto italic">Ayudo a empresas a ser más inteligentes y rápidas a través de los datos.</p>
-            
+            <h2 class="text-3xl font-bold mb-10">¿Hablamos sobre datos?</h2>
             <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
                 <a href="mailto:leivaandres372@gmail.com" class="text-xl font-semibold hover:text-indigo-400 transition underline underline-offset-8">leivaandres372@gmail.com</a>
                 <div class="flex gap-6">
-                    <a href="https://www.linkedin.com/in/andres-leiva/" class="hover:text-indigo-400 transition">LinkedIn</a>
-                    <a href="https://github.com/AndresLeiva93" class="hover:text-indigo-400 transition">GitHub</a>
+                    <a href="https://www.linkedin.com/in/andres-leiva/" target="_blank" class="hover:text-indigo-400 transition">LinkedIn</a>
+                    <a href="https://github.com/AndresLeiva93" target="_blank" class="hover:text-indigo-400 transition">GitHub</a>
                 </div>
             </div>
-            
-            <p class="text-slate-600 text-xs tracking-widest uppercase border-t border-slate-800 pt-10">
-                &copy; 2024 Portafolio Profesional
-            </p>
+            <p class="text-slate-600 text-xs tracking-widest uppercase">&copy; 2025 Andrés Leiva Hernández</p>
         </div>
     </footer>
 
-    <!-- Lógica de Filtrado -->
     <script>
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Cambiar estado activo de botones
                 filterBtns.forEach(b => b.classList.remove('active', 'bg-indigo-600', 'text-white'));
                 btn.classList.add('active', 'bg-indigo-600', 'text-white');
 
@@ -236,11 +210,11 @@
                         card.classList.add('animate-fade-in');
                     } else {
                         card.style.display = 'none';
+                        card.classList.remove('animate-fade-in');
                     }
                 });
             });
         });
     </script>
-
 </body>
 </html>
