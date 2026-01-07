@@ -9,6 +9,7 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .filter-btn.active { @apply bg-indigo-600 text-white border-indigo-600; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 leading-relaxed">
@@ -44,7 +45,7 @@
                 </div>
             </div>
             <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl rotate-3">
-                <img src="perfil.jpeg" alt="Profile" class="w-full h-full object-cover">
+                <img src="perfil.jpeg" alt="Profile" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop'">
             </div>
         </div>
     </header>
@@ -101,49 +102,89 @@
         </div>
     </section>
 
-    <!-- Proyectos -->
+    <!-- Proyectos con Filtros -->
     <section id="proyectos" class="py-20 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-2">Proyectos Seleccionados</h2>
-                <p class="text-slate-600 font-medium">Donde el código genera valor real.</p>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">Proyectos Seleccionados</h2>
+                    <p class="text-slate-600 font-medium">Donde el código genera valor real.</p>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="flex flex-wrap gap-2" id="filter-container">
+                    <button class="filter-btn active px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="all">Todos</button>
+                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="ciencia-datos">Ciencia de Datos</button>
+                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="automatizacion">Automatización</button>
+                    <button class="filter-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-200 hover:border-indigo-600 transition-all uppercase tracking-wider" data-filter="visualizacion">Visualización</button>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Proyecto 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="text-indigo-600 font-bold text-sm tracking-widest uppercase">Ciencia de Datos</div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+                
+                <!-- Proyecto 1: Buscador de Marcas -->
+                <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="ciencia-datos">
+                    <div class="aspect-video bg-indigo-50 flex items-center justify-center border-b border-slate-100">
+                        <img src="placeholder-marcas.jpg" alt="Buscador de Marcas" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <span class="text-indigo-200 font-bold uppercase tracking-tighter text-center px-4">Buscador de Marcas (NLP)</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-indigo-600 transition">Predicción de Churn de Clientes</h3>
-                    <p class="text-slate-600 text-sm mb-6">Desarrollo de un modelo Random Forest para identificar clientes con riesgo de abandono, con un 92% de precisión.</p>
-                    <div class="bg-indigo-50 p-4 rounded-xl mb-6">
-                        <span class="text-[10px] font-bold text-indigo-700 uppercase">Impacto:</span>
-                        <p class="text-sm text-slate-800 font-medium">Reducción del 12% en la tasa de cancelación trimestral.</p>
+                    <div class="p-6 flex-grow">
+                        <div class="text-indigo-600 font-bold text-[10px] tracking-widest uppercase mb-2">Ciencia de Datos</div>
+                        <h3 class="text-lg font-bold mb-3">Similitud Semántica y Fonética</h3>
+                        <p class="text-slate-600 text-sm mb-4">Implementación de modelos SBERT y BETO para identificar riesgos de confusión en marcas comerciales para INAPI.</p>
+                        <div class="bg-indigo-50 p-3 rounded-lg mb-4">
+                            <p class="text-xs text-indigo-800 font-semibold">98% de precisión en predicciones.</p>
+                        </div>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="px-6 pb-6 mt-auto flex gap-2">
                         <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">PYTHON</span>
-                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">SCIKIT-LEARN</span>
+                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">NLP</span>
                     </div>
                 </div>
 
-                <!-- Proyecto 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="text-emerald-600 font-bold text-sm tracking-widest uppercase">Automatización</div>
+                <!-- Proyecto 2: Clasificador de Radiografías -->
+                <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="ciencia-datos">
+                    <div class="aspect-video bg-emerald-50 flex items-center justify-center border-b border-slate-100">
+                        <img src="placeholder-ia.jpg" alt="IA Radiografías" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <span class="text-emerald-200 font-bold uppercase tracking-tighter text-center px-4">App Clasificación Oído (IA)</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-emerald-600 transition">Bot de Conciliación Bancaria</h3>
-                    <p class="text-slate-600 text-sm mb-6">Automatización completa del flujo de validación de pagos vs facturas emitidas usando APIs bancarias.</p>
-                    <div class="bg-emerald-50 p-4 rounded-xl mb-6">
-                        <span class="text-[10px] font-bold text-emerald-700 uppercase">Impacto:</span>
-                        <p class="text-sm text-slate-800 font-medium">Ahorro de 15 horas semanales de trabajo administrativo manual.</p>
+                    <div class="p-6 flex-grow">
+                        <div class="text-emerald-600 font-bold text-[10px] tracking-widest uppercase mb-2">Ciencia de Datos</div>
+                        <h3 class="text-lg font-bold mb-3">Clasificador Multimodelo IA</h3>
+                        <p class="text-slate-600 text-sm mb-4">Plataforma que integra modelos ResNet, YOLO y VIT para detección de patologías mediante API en Render.</p>
+                        <div class="bg-emerald-50 p-3 rounded-lg mb-4">
+                            <p class="text-xs text-emerald-800 font-semibold">Interacción Vercel + FastAPI.</p>
+                        </div>
                     </div>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">PYTHON</span>
-                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">FASTAPI</span>
-                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">AWS LAMBDA</span>
+                    <div class="px-6 pb-6 mt-auto flex gap-2">
+                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">RENDER</span>
+                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">PYTORCH</span>
                     </div>
                 </div>
+
+                <!-- Proyecto 3: Cuadro de Mando Innovación -->
+                <div class="project-card bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col" data-category="automatizacion visualizacion">
+                    <div class="aspect-video bg-amber-50 flex items-center justify-center border-b border-slate-100">
+                        <img src="placeholder-looker.jpg" alt="Looker Studio" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <span class="text-amber-200 font-bold uppercase tracking-tighter text-center px-4">Cuadro de Mando Innovación</span>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex gap-2 mb-2">
+                            <span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase">Automatización</span>
+                            <span class="text-blue-600 font-bold text-[10px] tracking-widest uppercase">Visualización</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Gestión Automatizada de Proyectos</h3>
+                        <p class="text-slate-600 text-sm mb-4">Ecosistema en Looker Studio y App Script para orquestar flujos de innovación desde Google Forms hasta seguimiento real.</p>
+                        <div class="bg-amber-50 p-3 rounded-lg mb-4">
+                            <p class="text-xs text-amber-800 font-semibold">Confirmaciones vía App Script.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 mt-auto flex gap-2">
+                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">LOOKER</span>
+                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-bold">APP SCRIPT</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -155,7 +196,7 @@
             <p class="text-slate-400 mb-10 max-w-lg mx-auto italic">Ayudo a empresas a ser más inteligentes y rápidas a través de los datos.</p>
             
             <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
-                <a href="mailto:tu@correo.com" class="text-xl font-semibold hover:text-indigo-400 transition underline underline-offset-8">leivaandres372@gmail.com</a>
+                <a href="mailto:leivaandres372@gmail.com" class="text-xl font-semibold hover:text-indigo-400 transition underline underline-offset-8">leivaandres372@gmail.com</a>
                 <div class="flex gap-6">
                     <a href="https://www.linkedin.com/in/andres-leiva/" class="hover:text-indigo-400 transition">LinkedIn</a>
                     <a href="https://github.com/AndresLeiva93" class="hover:text-indigo-400 transition">GitHub</a>
@@ -167,6 +208,32 @@
             </p>
         </div>
     </footer>
+
+    <!-- Lógica de Filtrado -->
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Cambiar estado activo de botones
+                filterBtns.forEach(b => b.classList.remove('active', 'bg-indigo-600', 'text-white'));
+                btn.classList.add('active', 'bg-indigo-600', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+                        card.style.display = 'flex';
+                        card.classList.add('animate-fade-in');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
